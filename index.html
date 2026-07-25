@@ -32,6 +32,7 @@
         <a href="#skills" class="nav__link">Skills</a>
         <a href="#projects" class="nav__link">Projects</a>
         <a href="#certifications" class="nav__link">Certifications</a>
+        <a href="#faq" class="nav__link">FAQ</a>
         <a href="#contact" class="nav__link">Contact</a>
       </nav>
     </div>
@@ -40,18 +41,28 @@
   <main id="main">
     <!-- Hero / About -->
     <section id="hero" class="section hero">
-      <div class="container hero__inner fade-in">
-        <p class="hero__eyebrow">Hello, I'm</p>
-        <h1 class="hero__name">Shahajada Al Habib</h1>
-        <h2 class="hero__title">Solo Software Developer</h2>
-        <p class="hero__intro">
-          Based in Dhaka, Bangladesh. I design and build full-stack applications with
-          <strong>Angular</strong> and <strong>Spring Boot</strong> — currently focused on
-          Bangla news portals, from admin CMS backends to public-facing reader sites.
-        </p>
-        <div class="hero__actions">
-          <a href="#projects" class="btn btn--primary">View Projects</a>
-          <a href="#contact" class="btn btn--ghost">Contact Me</a>
+      <div class="container hero__inner">
+        <div class="hero__content fade-in">
+          <span class="badge">
+            <span class="badge__dot"></span>
+            Available for opportunities
+          </span>
+          <p class="hero__eyebrow">Hello, I'm</p>
+          <h1 class="hero__name">Shahajada Al Habib</h1>
+          <h2 class="hero__title">Solo Software Developer</h2>
+          <p class="hero__intro">
+            Based in Dhaka, Bangladesh. I design and build full-stack applications with
+            <strong>Angular</strong> and <strong>Spring Boot</strong> — currently focused on
+            Bangla news portals, from admin CMS backends to public-facing reader sites.
+          </p>
+          <div class="hero__actions">
+            <a href="#projects" class="btn btn--primary">View Projects</a>
+            <a href="#contact" class="btn btn--ghost">Contact Me</a>
+            <button type="button" class="btn btn--disabled" disabled title="Resume coming soon">Download Resume</button>
+          </div>
+        </div>
+        <div class="hero__photo fade-in">
+          <img src="assets/images/profile.jpg" alt="Portrait of Shahajada Al Habib" width="320" height="320" />
         </div>
       </div>
     </section>
@@ -97,8 +108,14 @@
         <h2 class="section__title fade-in">Projects</h2>
         <p class="section__subtitle fade-in">A few things I've built and shipped</p>
 
-        <div class="projects-grid">
-          <article class="project-card fade-in">
+        <div class="filter-bar fade-in" id="projectFilters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="web">Web Application</button>
+          <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+          <article class="project-card fade-in" data-category="web">
             <h3 class="project-card__title">Alochito Songbad</h3>
             <p class="project-card__desc">
               A Bangla news CMS with a public reader site and an admin dashboard —
@@ -114,7 +131,7 @@
             </div>
           </article>
 
-          <article class="project-card fade-in">
+          <article class="project-card fade-in" data-category="web">
             <h3 class="project-card__title">Kishoreganj Somoy</h3>
             <p class="project-card__desc">
               A live client news portal for Kishoreganj, built on the same
@@ -132,7 +149,7 @@
             </div>
           </article>
 
-          <article class="project-card fade-in">
+          <article class="project-card fade-in" data-category="web">
             <h3 class="project-card__title">Jahaj Ghor</h3>
             <p class="project-card__desc">
               An Angular application with a live demo available below.
@@ -147,6 +164,10 @@
             </div>
           </article>
         </div>
+
+        <p class="projects-empty" id="projectsEmpty" hidden>
+          No projects in this category yet — check back soon.
+        </p>
       </div>
     </section>
 
@@ -162,6 +183,66 @@
             <h3 class="cert-card__title">Web and Mobile App Development</h3>
             <p class="cert-card__org">ISDB-BISEW</p>
             <p class="cert-card__desc">Spring Boot, Android &amp; Flutter</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="container">
+        <h2 class="section__title fade-in">FAQ</h2>
+        <p class="section__subtitle fade-in">Common questions before you reach out</p>
+
+        <div class="faq-list fade-in">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>What technologies do you specialize in?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Mainly Angular and Spring Boot for full-stack web apps, with MySQL for data storage. I'm also learning Flutter for mobile and use Docker for local development.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Are you available for freelance or remote work?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>I'm currently open to hearing about new opportunities. Reach out with your project details and I'll let you know if it's a fit.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Do you work with clients outside Bangladesh?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes, I can work remotely with clients anywhere, coordinating over email or video calls.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>How do I request a quote or start a project?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Email me a short description of what you need — features, rough timeline, and budget range if you have one — and I'll get back to you with next steps.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Do you offer support after a project is delivered?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Support arrangements are discussed and agreed on a per-project basis before work begins.</p>
+            </div>
           </div>
         </div>
       </div>
